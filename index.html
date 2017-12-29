@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<!--
+	Theory by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html lang="en" ng-app="myApp">
+	<head>
+		<title>GeoTunes</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<script src="codebase/dhtmlxslider.js"></script>
+		<style>
+
+		.container {
+   position: relative;
+		}
+
+	input[type="button"].alt,button.alt,.button.alt {
+	 float: left;
+   position: absolute;
+   z-index: 1000;
+   padding: 5px;
+   width:3.5%;
+   height:6.25%;
+   border-radius:30%;
+   box-shadow: inset 0 0 0 2px #000000
+		}
+#america{left: 12%;top: 26%;background: url(http://www.photosinbox.com/download/round-american-flag-badge.jpg) no-repeat center; background-size:100px 80px;}
+		#canada{left:14%;top:15%;background: url(https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Flag_of_Canada.svg/1280px-Flag_of_Canada.svg.png) no-repeat center; background-size:80px 40px;}
+		#latin{left:11%;top:40%;background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/1280px-Flag_of_Mexico.svg.png) no-repeat center; background-size:80px 40px;}
+		#uk{left:41%;top:17%;background: url(http://ukflag.facts.co/UKFlag3.jpg) no-repeat center; background-size:60px 40px;}
+		#russia{left:68%;top:14%;background: url(https://upload.wikimedia.org/wikipedia/en/archive/f/f3/20120812153730!Flag_of_Russia.svg) no-repeat center; background-size:80px 60px;}
+		#china{left:75%;top:29%;background: url(http://www.enchantedlearning.com/asia/china/flag.GIF) no-repeat ; background-size:60px 40px;}
+		#japan{left:85%;top:27%;background: url(https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1280px-Flag_of_Japan.svg.png) no-repeat center; background-size:60px 40px;}
+		#korea{left:81.5%;top:26.5%;background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/2000px-Flag_of_South_Korea.svg.png) no-repeat center; background-size:60px 40px;}
+		#aussie{left:83.5%;top:68%;background: url(https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/1920px-Flag_of_Australia.svg.png) no-repeat center center; background-size:70px 35px;}
+	
+		  #sliderObj {
+			width: 300px;
+			height: 30px;
+			margin-left: 10px;
+		}
+			#sliderLink {
+			font-size: 11px;
+			font-family: Tahoma;
+		}
+		table.demo_table td {
+			text-align: left;
+			vertical-align: top;
+			padding-right: 80px;
+			width:80%;
+		}
+
+		#wordCloud {
+  position: relative;
+  width: 960px;
+  margin: auto;
+  margin-bottom: 1em;
+  margin-top: 20px;
+}
+#presets a { border-left: solid #666 1px; padding: 0 10px; }
+#presets a.first { border-left: none; }
+#keyword { width: 300px; }
+#fetcher { width: 500px; }
+#keyword, #go { font-size: 1.5em; }
+#text { width: 100%; height: 100px; }
+p.copy { font-size: small; }
+#form { font-size: small; position: relative;}
+hr { border: none; border-bottom: solid #ccc 1px; }
+a.active { text-decoration: none; color: #000; font-weight: bold; cursor: text; }
+#angles line, #angles path, #angles circle { stroke: #666; }
+#angles text { fill: #333; }
+#angles path.drag { fill: #666; cursor: move; }
+#angles { text-align: center; margin: 0 auto; width: 350px; }
+#angles input, #max { width: 42px; }
+	</style>
+
+	<script>
+		var mySlider;
+
+		function doOnLoad(){
+			mySlider = new dhtmlXSlider("sliderObj", 900, null, false, 2010, 2016, 2010, 1);
+			mySlider.setSkin("dhx_terrace");
+			mySlider.linkTo("sliderLink")
+		};
+
+		function doOnUnload(){
+			if (mySlider != null){
+				mySlider.unload();
+				mySlider = null;
+			}
+		};
+	</script>
+    <script src="http://code.angularjs.org/1.5.8/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	</head>
+	<body ng-controller="myCtrl">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="http://tartanhacks.com" class="logo">TartanHacks 2017</a>
+					<!--<nav id="nav">
+						<a href="index.html">Home</a>
+						<a href="generic.html">Generic</a>
+						<a href="elements.html">Elements</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>-->
+				</div>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<br /><br /><br /><br /><br /><br /><br /><br />
+
+				<h1><a href="index.html" class="logo">Welcome to GeoTunes</a></h1>
+				<br /><br /><br /><br /><br /><br /><br /><br />
+
+				<!--<p>A Music Lyrics Visualizer.</p>-->
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper">
+				<div class="inner">
+					<!--<div class="flex flex-3">-->
+						<article>
+							<header>
+								<h3><b>A New Way to Visualize Music Lyrics Throughout the World.</b><br /></h3>
+							</header>
+							<p><b>Pop music changes so much throughout the years. Here, we created an innovative way to visualize how lyrics around the world have shifted over time. Our program examines the lyrics of the top ten charting songs of nine countries (including US, UK, and Korea) from 2010 to 2016. From the world map, you can update the year you wish to view. Then, select a country to switch to Word Cloud mode. The word cloud will show you the particular lyrics that stood out at the selected country and year!</b></p>
+							<footer>
+							  <h1 id="bigOne"> ? </h1>
+
+  <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+  <script>
+  window.setInterval(function(){
+	$( "#go" ).trigger('click')
+}, 4000);
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBqtgA4eqsh4lLhZ4yISLK70CreSJbfQbo",
+      authDomain: "music-world-f9eaa.firebaseapp.com",
+      databaseURL: "https://music-world-f9eaa.firebaseio.com",
+      storageBucket: "music-world-f9eaa.appspot.com",
+      messagingSenderId: "653990970991"
+    };
+    firebase.initializeApp(config);
+
+    var bigOne = document.getElementById('bigOne');
+    var dbRef = firebase.database().ref().child('test');
+    dbRef.on('value', snap => bigOne.innerText = snap.val());
+
+  </script>
+							</footer> 
+						</article>
+						</div>
+						</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style1 special" ng-show="MakeMapVisible" style="background-color:#4090FF">
+				<div class="inner" >
+					<header>
+						<h2>World Map</h2>
+					</header>
+					<div class="container">
+					<input type="button" class="button alt" id="america" ng-click="cloudChange(0)" onclick="dbRef.remove().then(dbRef.push(0))" ng-style="{'background-color':colorCalc(repo[0][parseInt(year)-2010])}"/>
+					<input type="button" class="button alt" id="aussie" ng-click="cloudChange(1)" onclick="dbRef.remove().then(dbRef.push(1))" ng-style="{'background-color':colorCalc(repo[1][parseInt(year)-2010])}"/>
+					<input type="button" class="button alt" id="canada" ng-click="cloudChange(2)" onclick="dbRef.remove().then(dbRef.push(2))" ng-style="{'background-color':colorCalc(repo[2][parseInt(year)-2010])}"/>
+					<input type="button" class="button alt" id="china" ng-click="cloudChange(3)" onclick="dbRef.remove().then(dbRef.push(3))" ng-style="{'background-color':colorCalc(repo[3][parseInt(year)-2010])}"/>
+					<input type="button" class="button alt" id="japan" ng-click="cloudChange(4)" onclick="dbRef.remove().then(dbRef.push(4))" ng-style="{'background-color':colorCalc(repo[4][parseInt(year)-2010])}"/>
+					<input type="button" class="button alt" id="korea" ng-click="cloudChange(5)" onclick="dbRef.remove().then(dbRef.push(5))" ng-style="{'background-color':colorCalc(repo[5][parseInt(year)-2010])}"/>
+					<input type="button" class="button alt" id="latin" ng-click="cloudChange(6)" onclick="dbRef.remove().then(dbRef.push(6))" ng-style="{'background-color':colorCalc(repo[6][parseInt(year)-2010])}"/>
+					<input type="button" class="button alt" id="russia" ng-click="cloudChange(7)" onclick="dbRef.remove().then(dbRef.push(7))" ng-style="{'background-color':colorCalc(repo[7][parseInt(year)-2010])}"/>
+					<input type="button" class="button alt" id="uk" type = "submit" ng-click="cloudChange(8)" onclick="dbRef.remove().then(dbRef.push(8))" ng-style="{'background-color':colorCalc(repo[8][parseInt(year)-2010])}"/>
+
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Simple_world_map.svg/2000px-Simple_world_map.svg.png" alt="Person 1" style="width:100%;filter: contrast(400%);margin-left:-60px	">
+							</div>
+							<h3>Year</h3>
+
+
+		<tr>
+			<td><input id="sliderLink" type="text" ng-model="year" style=";text-align:center;margin-left:0%;font-size:14px;color:white"></td>
+		</tr>
+
+
+			</div>
+			</section>
+
+		<!-- Two -->
+			<section id="three" class="wrapper" ng-show="!MakeMapVisible">
+						<div>
+        <input type="button" value="Return to Map" ng-click="MakeMapVisible=!MakeMapVisible"/>
+    </div>
+			<div class="inner" id="wordCloud">
+<div id="vis"> </div>
+<form id="form">
+
+<p style="position: absolute; right: 0; top: 0" id="status"></p>
+
+<div style="text-align: center">
+  <div id="presets"></div>
+  <div id="custom-area">
+
+    <h3><label for="text"> Select a year and country to see word clouds of the top ten songs for that setting! </label></h3> <textarea ng-model="cloudText" ng-hide = "true" id="text">
+</textarea>
+    <br/>
+    <button id="go" type="submit" ng-hide = 'true'>Go!</button>
+  </div>
+</div>
+
+<hr>
+<div style="display:none">
+<div style="float: right; text-align: right">
+  <p><label for="max">Number of words:</label> <input type="number" value="5000" min="1" id="max">
+  <p><label for="per-line"><input type="checkbox" id="per-line"> One word per line</label>
+  <p><label>Download:</label>
+    <button id="download-svg">SVG</button>
+</div>
+
+<div style="float: left">
+  <p><label>Spiral:</label>
+    <label for="rectangular"><input type="radio" name="spiral" id="rectangular" value="rectangular"> Rectangular</label>
+    <label for="archimedean"><input type="radio" name="spiral" id="archimedean" value="archimedean" checked="checked"> Archimedean</label>
+  <p><label for="scale">Scale:</label>
+      <label for="scale-linear"><input type="radio" name="scale" id="scale-linear" value="linear" checked="checked"> n</label>
+    <label for="scale-log"><input type="radio" name="scale" id="scale-log" value="log"> log n</label>
+    <label for="scale-sqrt"><input type="radio" name="scale" id="scale-sqrt" value="sqrt"> √n</label>
+  <p><label for="font">Font:</label> <input type="text" id="font" value="Impact">
+</div>
+
+<div id="angles">
+  <p><input type="number" id="angle-count" value="5" min="1"> <label for="angle-count">orientations</label>
+    <label for="angle-from">from</label> <input type="number" id="angle-from" value="-60" min="-90" max="90"> °
+    <label for="angle-to">to</label> <input type="number" id="angle-to" value="60" min="-90" max="90"> °
+</div>
+
+<hr style="clear: both">
+<p style="float: right"><a href="about/">How the Word Cloud Generator Works</a>.
+<p style="float: left">Copyright &copy; <a href="http://www.jasondavies.com/">Jason Davies</a> | <a href="../privacy/">Privacy Policy</a>. The generated word clouds may be used for any purpose.
+</div>
+
+</form>
+
+<script src="d3.min.js"></script>
+<script src="cloud.min.js"></script>
+
+			</div>
+			</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="flex">
+						<p><b> Created by Melodee Li, Jarrett Liang, and David Liu.</b></p>
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

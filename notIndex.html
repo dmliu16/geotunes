@@ -1,0 +1,274 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Theory by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html lang="en" ng-app="myApp">
+	<head>
+		<title>GeoTunes</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<script src="codebase/dhtmlxslider.js"></script>
+		<style>
+
+		.container {
+   position: relative;
+		}
+
+	input[type="button"].alt,button.alt,.button.alt {
+	 float: left;
+   position: absolute;
+   z-index: 1000;
+   padding: 5px;
+   width:3.5%;
+   height:6.25%;
+   border-radius:30%;
+   box-shadow: inset 0 0 0 2px #000000
+		}
+
+		#america{left: 14%;top: 26%;background-color: #dbdbdb;}
+		#canada{left:16%;top:15%;background-color: #dbdbdb}
+		#latin{left:13%;top:40%;background-color: #dbdbdb}
+		#uk{left:44%;top:17%;background-color: #dbdbdb}
+		#russia{left:70%;top:14%;background-color: #dbdbdb}
+		#china{left:77%;top:29%;background-color: #dbdbdb}
+		#japan{left:87%;top:27%;background-color: #dbdbdb}
+		#korea{left:83.5%;top:26.5%;background-color: #dbdbdb}
+		#aussie{left:85.5%;top:68%;background-color: #dbdbdb}
+
+
+		  #sliderObj {
+			width: 300px;
+			height: 30px;
+			margin-left: 10px;
+		}
+			#sliderLink {
+			font-size: 11px;
+			font-family: Tahoma;
+		}
+		table.demo_table td {
+			text-align: left;
+			vertical-align: top;
+			padding-right: 80px;
+			width:80%;
+		}
+
+		#wordCloud {
+  position: relative;
+  width: 960px;
+  margin: auto;
+  margin-bottom: 1em;
+  margin-top: 20px;
+}
+#presets a { border-left: solid #666 1px; padding: 0 10px; }
+#presets a.first { border-left: none; }
+#keyword { width: 300px; }
+#fetcher { width: 500px; }
+#keyword, #go { font-size: 1.5em; }
+#text { width: 100%; height: 100px; }
+p.copy { font-size: small; }
+#form { font-size: small; position: relative;}
+hr { border: none; border-bottom: solid #ccc 1px; }
+a.active { text-decoration: none; color: #000; font-weight: bold; cursor: text; }
+#angles line, #angles path, #angles circle { stroke: #666; }
+#angles text { fill: #333; }
+#angles path.drag { fill: #666; cursor: move; }
+#angles { text-align: center; margin: 0 auto; width: 350px; }
+#angles input, #max { width: 42px; }
+	</style>
+
+	<script>
+		var mySlider;
+
+		function doOnLoad(){
+			mySlider = new dhtmlXSlider("sliderObj", 900, null, false, 2010, 2016, 2010, 1);
+			mySlider.setSkin("dhx_terrace");
+			mySlider.linkTo("sliderLink")
+		};
+
+		function doOnUnload(){
+			if (mySlider != null){
+				mySlider.unload();
+				mySlider = null;
+			}
+		};
+	</script>
+    <script src="http://code.angularjs.org/1.5.8/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	</head>
+	<body onload="doOnLoad();" onunload="doOnUnload();" ng-controller="myCtrl">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="http://tartanhacks.com" class="logo">TartanHacks 2017</a>
+					<!--<nav id="nav">
+						<a href="index.html">Home</a>
+						<a href="generic.html">Generic</a>
+						<a href="elements.html">Elements</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>-->
+				</div>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<br /><br /><br /><br /><br /><br /><br /><br />
+
+				<h1><a href="index.html" class="logo">Welcome to GeoTunes</a></h1>
+				<br /><br /><br /><br /><br /><br /><br /><br />
+
+				<!--<p>A Music Lyrics Visualizer.</p>-->
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper">
+				<div class="inner">
+					<!--<div class="flex flex-3">-->
+						<article>
+							<header>
+								<h3><b>A New Way to Visualize Music Lyrics Throughout the World.</b><br /></h3>
+							</header>
+							<p><b>Pop music changes so much throughout the years. Here, we created an innovative way to visualize how lyrics around the world have shifted over time. Our program examines the lyrics of the top ten charting songs of nine countries (including US, UK, and Korea) from 2010 to 2016. It has two components: the world map, which displays the nine countries with colors representing the overall sentiment of the lyrics of that year (___ being ___, and ___ being ___), and the  word cloud, where you can see particular lyrics stood out at a specific time and place.</b></p>
+							<footer>
+							  <h1 id="bigOne"> ? </h1>
+
+  <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBqtgA4eqsh4lLhZ4yISLK70CreSJbfQbo",
+      authDomain: "music-world-f9eaa.firebaseapp.com",
+      databaseURL: "https://music-world-f9eaa.firebaseio.com",
+      storageBucket: "music-world-f9eaa.appspot.com",
+      messagingSenderId: "653990970991"
+    };
+    firebase.initializeApp(config);
+
+    var bigOne = document.getElementById('bigOne');
+    var dbRef = firebase.database().ref().child('test');
+    dbRef.on('value', snap => bigOne.innerText = snap.val());
+
+  </script>
+							</footer>
+						</article>
+						</div>
+						</section>
+
+</textarea>
+    <br/>
+    <button id="go" type="submit" ng-hide = "true" ng>Go!</button>
+  </div>
+</div>
+
+<hr>
+<div style="display:none">
+<div style="float: right; text-align: right">
+  <p><label for="max">Number of words:</label> <input type="number" value="5000" min="1" id="max">
+  <p><label for="per-line"><input type="checkbox" id="per-line"> One word per line</label>
+  <p><label>Download:</label>
+    <button id="download-svg">SVG</button>
+</div>
+
+<div style="float: left">
+  <p><label>Spiral:</label>
+    <label for="rectangular"><input type="radio" name="spiral" id="rectangular" value="rectangular"> Rectangular</label>
+    <label for="archimedean"><input type="radio" name="spiral" id="archimedean" value="archimedean" checked="checked"> Archimedean</label>
+  <p><label for="scale">Scale:</label>
+      <label for="scale-linear"><input type="radio" name="scale" id="scale-linear" value="linear" checked="checked"> n</label>
+    <label for="scale-log"><input type="radio" name="scale" id="scale-log" value="log"> log n</label>
+    <label for="scale-sqrt"><input type="radio" name="scale" id="scale-sqrt" value="sqrt"> √n</label>
+  <p><label for="font">Font:</label> <input type="text" id="font" value="Impact">
+</div>
+
+<div id="angles">
+  <p><input type="number" id="angle-count" value="5" min="1"> <label for="angle-count">orientations</label>
+    <label for="angle-from">from</label> <input type="number" id="angle-from" value="-60" min="-90" max="90"> °
+    <label for="angle-to">to</label> <input type="number" id="angle-to" value="60" min="-90" max="90"> °
+</div>
+
+<hr style="clear: both">
+<p style="float: right"><a href="about/">How the Word Cloud Generator Works</a>.
+<p style="float: left">Copyright &copy; <a href="http://www.jasondavies.com/">Jason Davies</a> | <a href="../privacy/">Privacy Policy</a>. The generated word clouds may be used for any purpose.
+</div>
+
+</form>
+
+<script src="d3.min.js"></script>
+<script src="cloud.min.js"></script>
+
+			</div>
+			</div>
+			</section>
+
+			<div>
+        <input type="button" value="Toggle" ng-click="MakeMapVisible=!MakeMapVisible"/>
+    </div>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+var bigA = [
+          ['Year', 'USA', 'CAN', 'AUS', 'CHN',  'JP', 'KRN', 'LTN', 'RUS',  'UK'],
+  [2010, 0.5343 , 0.695349331 , 0.666666 , 0.112422 , 0.5555 , 0.566653 , 0.35333 , 0.55532 , 0.333333   ],
+  [2011, 0.341350305 , 0.361127062 , 0.374403 , 0.021980251 , 0.676758799 , 0.379685231 , 0.194227687 , 0.285232264 , 0.14008308   ],
+  [2012, 0.473236003 , 0.171473086 , 0.637431007 , 0.015752551 , 0.333388785 , 0.641428657 , 0.388889588 , 0.144374728 , 0.210960561   ],
+  [2013, 0.220601034 , 0.748425908 , 0.848573572 , 0.043370853 , 0.678516966 , 0.428993592 , 0.725394287 , 0.206177743 , 0.230328277   ],
+  [2014, 0.487415841 , 0.627941214 , 0.173082589 , 0.122325885 , 0.796995419 , 0.782183735 , 0.693492285 , 0.73853941 , 0.22877751   ],
+  [2015, 0.397919198 , 0.746020925 , 0.861106385 , 0.035070985 , 0.765457914 , 0.42160477 , 0.795059046 , 0.73488537 , 0.473052502   ],
+  [2016, 0.593364334 , 0.540528449 , 0.851466861 , 0.142041563 , 0.807048296 , 0.772556114 , 0.796308042 , 0.248760821 , 0.253252755   ]
+
+        ]
+
+      function drawChart(bigA) {
+        var data = google.visualization.arrayToDataTable();
+
+        toDoDB.on('value', showItems);
+        
+        function showItems(snapshot){
+            //gets data in database as a list
+            var data = snapshot.val();
+            //loops over each identifier in database
+            for (var identifier in data) {
+				drawChart([['Year',bigA[0][parseInt(identifier)]],bigA[parseInt(identifier)]])
+            }
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  </body>
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="flex">
+						<p><b> Created by Melodee Li, Jarrett Liang, and David Liu.</b></p>
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
